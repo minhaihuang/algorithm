@@ -55,7 +55,7 @@ public class MyArray {
         size++;
     }
 
-    public void outout(){
+    public void output(){
         for(int i = 0; i < array.length; i++){
             System.out.println(array[i]);
         }
@@ -69,6 +69,6 @@ public class MyArray {
         myArray.insert(5,3);
         myArray.insert(6,4);
 
-        myArray.outout();
+        myArray.output();
     }
 }
