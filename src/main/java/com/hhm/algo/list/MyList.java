@@ -1,7 +1,9 @@
 package com.hhm.algo.list;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 链表
@@ -131,5 +133,9 @@ public class MyList {
         System.out.println(myList.size);
         System.out.println("===================");
         myList.output();
+
+        Map<String,String> map = new HashMap<String, String>();
+        map.put("qq","bb");
+        map.get("qq");
     }
 }
