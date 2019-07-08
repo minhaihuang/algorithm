@@ -6,25 +6,29 @@ package com.hhm.algo.tree;
  （2）若右子树不为空，则右子树上所有节点的值均大于根节点的值
  （3）左右子树也都是查找二叉树/二叉排序树。
  */
-public class SearchTree {
+public class MyBSTree {
     private static TreeNode treeNode = null;
 
     public static void main(String[] args) {
-        SearchTree.insert(4);
-        SearchTree.insert(3);
-        SearchTree.insert(5);
-        SearchTree.insert(1);
-        SearchTree.insert(2);
-        output(SearchTree.treeNode);
-
-        System.out.println("====================================");
-        TreeNode treeNode = getTreeNodeByData(SearchTree.getTreNode(),3);
+        MyBSTree.insert(10);
+        MyBSTree.insert(3);
+        MyBSTree.insert(5);
+        MyBSTree.insert(1);
+        MyBSTree.insert(2);
+        MyBSTree.insert(9);
+        MyBSTree.insert(12);
+        MyBSTree.insert(8);
+        MyBSTree.insert(11);
+//        output(SearchTree.treeNode);
+//
+        System.out.println("==============测试查找节点======================");
+        TreeNode treeNode = getTreeNodeByData(MyBSTree.getTreNode(),5);
         System.out.println(treeNode.getParent().getData());
-        System.out.println("====================================");
-        System.out.println(minTreeNode(SearchTree.getTreNode()).getData());
-        System.out.println("====================================");
-        TreeNode tree = remove(SearchTree.treeNode);
-        output(tree);
+        System.out.println("==============测试查找最小节点=====================");
+        System.out.println(minTreeNode(MyBSTree.getTreNode()).getData());
+        System.out.println("================测试删除节点====================");
+        TreeNode deleteNode = remove(10);
+        output(MyBSTree.treeNode);
     }
 
     public static TreeNode getTreNode(){
@@ -66,11 +70,15 @@ public class SearchTree {
 
     /**
      * 删除节点
-     * @param node
+     * @param data
      * @return
      */
-    public static TreeNode remove(TreeNode node){
-        if(treeNode == null || node == null){
+    public static TreeNode remove(Integer data){
+        if(treeNode == null || data == null){
+            return null;
+        }
+        TreeNode node = getTreeNodeByData(treeNode,data);
+        if(node == null){
             return null;
         }
         TreeNode deleteNode = null;
@@ -82,13 +90,7 @@ public class SearchTree {
         }
         removeNode(deleteNode);
         if(deleteNode != node){
-            if(node.leftChild != null){
-                node.leftChild.parent = deleteNode;
-            }
-            if(node.rightChild != null){
-                node.rightChild.parent = deleteNode;
-            }
-            node = deleteNode;
+            node.data = deleteNode.data;
         }
 
         return node;
