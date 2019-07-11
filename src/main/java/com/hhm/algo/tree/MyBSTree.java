@@ -149,7 +149,6 @@ public class MyBSTree {
         // 头节点为空的情况
        if(treeNode == null){
            treeNode = new TreeNode(data);
-           treeNode.setParent(treeNode);
            return;
        }
        TreeNode temp = treeNode;
